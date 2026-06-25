@@ -1,24 +1,115 @@
-import React from "react";
+"use client";
+
+import { useState, useContext } from "react";
 import styles from "@/app/styles.module.css";
+import clsx from "clsx";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
+import { sidebarToggleContext } from "./Wrapper";
 
 const Sidebar = () => {
+  const pathname = usePathname();
+
+  const context = useContext(sidebarToggleContext);
+
+  if (!context) {
+    throw new Error("sidbar must be used inside Wrapper");
+  }
+
+  const { isOpen, setIsOpen } = context;
+  console.log(isOpen);
   return (
     <div
-      className={`${styles.shadow} hidden flex-col min-w-60 2xl:flex  shadow-2xs border-r-[0.5px] rounded-2xl`}
+      className={`
+    ${styles.shadow}
+    bg-white
+    flex-col
+    min-h-screen
+    overflow-hidden
+    transition-all
+    duration-300
+    ease-in-out
+    fixed
+    flex
+    w-72
+    top-0
+    z-10
+    ${!isOpen ? "-right-72 fixed" : "right-0"}
+        border-l
+        rounded-l-2xl
+      `}
     >
-      <div className=" flex justify-center items-center text-[28px] mb-7.5 mt-10">
-        لوحة <span className="text-blue-600 text-[38px]">القيادة</span>
+      <div className={`whitespace-nowrap`}>
+        <div className="flex justify-center items-center text-[28px] mt-6 mb-8">
+          لوحة
+          <span className="text-blue-600 text-[38px] mr-2">القيادة</span>
+        </div>
+
+        <div className="w-full flex flex-col items-center">
+          <Link
+            href="/"
+            className={`${styles.link} ${pathname === "/" ? styles.focus : ""}`}
+          >
+            الصفحة الرئيسية
+          </Link>
+
+          <Link
+            href="/datachart"
+            className={`${styles.link} ${
+              pathname === "/datachart" ? styles.focus : ""
+            }`}
+          >
+            لوحة البيانات
+          </Link>
+
+          <Link
+            href="/form"
+            className={`${styles.link} ${
+              pathname === "/form" ? styles.focus : ""
+            }`}
+          >
+            الحساب
+          </Link>
+
+          <Link
+            href="/users"
+            className={`${styles.link} ${
+              pathname === "/users" ? styles.focus : ""
+            }`}
+          >
+            المستخدمين
+          </Link>
+
+          <Link
+            href="/statistics"
+            className={`${styles.link} ${
+              pathname === "/statistics" ? styles.focus : ""
+            }`}
+          >
+            الإحصائيات
+          </Link>
+
+          <Link
+            href="/settings"
+            className={`${styles.link} ${
+              pathname === "/settings" ? styles.focus : ""
+            }`}
+          >
+            الإعدادات
+          </Link>
+        </div>
       </div>
 
-      <div className="w-full flex flex-col items-center">
-        <div className={`${styles.link}`}>الصفحة الرئيسية</div>
-        <div className={`${styles.link}`}>لوحة البيانات</div>
-        <div className={`${styles.link} ${styles.focus}`}>الحساب</div>
-        <div className={`${styles.link}`}>المستخدمين</div>
-        <div className={`${styles.link}`}>الإحصائيات</div>
-        <div className={`${styles.link}`}>الإعدادات</div>
-        <div className={`${styles.link}`}>لوحة التحكم</div>
-      </div>
+      {isOpen && (
+        <button
+          className="fixed cursor-pointer top-4 right-4"
+          onClick={() => setIsOpen((prev) => !prev)}
+        >
+          <FontAwesomeIcon icon={faX} color="dodgerblue" size="lg" />
+        </button>
+      )}
     </div>
   );
 };

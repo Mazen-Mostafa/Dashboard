@@ -1,30 +1,118 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import clsx from "clsx";
+import { usePathname } from "next/navigation";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSearch,
-  faBars,
-  faBell,
-  faAngleDown,
-} from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+
+const links = [
+  { name: "الصفحة الرئيسية", href: "/" },
+  { name: "من نحن", href: "/us/" },
+  { name: "الخدمات", href: "/services/" },
+  { name: "الصفحات", href: "/pages/" },
+  { name: "تواصل معنا", href: "/contact/" },
+];
 
 const Header = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const path = usePathname();
+
+  console.log(path);
   return (
-    <header className="flex items-center justify-between w-full">
-      <div className="pl-11 pr-4 py-1 text-sm bg-white text-slate-800 border border-slate-200 rounded-xl outline-none shadow-sm transition-all duration-200 placeholder:text-slate-400 focus:border-indigo-500 focus:bg-white focus:shadow-[0_10px_15px_-3px_rgba(99,102,241,0.1),0_4px_6px_-2px_rgba(99,102,241,0.05)]">
-        <FontAwesomeIcon icon={faSearch} />
-        <input
-          type="search"
-          placeholder={`بحث...`}
-          className="pl-11 pr-4 py-1 text-sm bg-white text-slate-800 border-none focus:outline-none max-w-100"
-        />
+    <header className="fixed top-0 left-0 z-50 w-full bg-white shadow-sm">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 md:px-8">
+        {/* Logo */}
+        <div className="flex items-center">
+          <Link href="/">
+            <Image
+              src={"/logo.png"}
+              alt="Logo"
+              width={50}
+              height={50}
+              priority
+            />
+          </Link>
+          <h2 className="text-[26px] mr-3 text-[var(--primary-1)] font-bold">
+            الوصل
+          </h2>
+        </div>
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex h-20 justify-center items-center gap-8">
+          {links.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className={`
+              flex
+              items-center
+                font-bold
+                text-[17px]
+                text-[var(--primary-1)]
+                transition
+                hover:text-[var(--primary-3)]
+                h-full
+                ${
+                  path == link.href
+                    ? "text-[var(--primary-3) border-b-[var(--primary-3)] border-b-4"
+                    : ""
+                }
+              `}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </nav>
+
+        {/* Mobile Button */}
+        <button
+          onClick={() => setMobileMenuOpen((prev) => !prev)}
+          className="md:hidden text-2xl"
+          aria-label="Toggle menu"
+        >
+          <FontAwesomeIcon
+            icon={mobileMenuOpen ? faXmark : faBars}
+            className="text-[var(--primary-1)]"
+          />
+        </button>
       </div>
-      <div className="flex items-center">
-        <FontAwesomeIcon icon={faBell} color="dodgerblue" />
-        <img width={30} height={30} className="bg-gray-600 rounded-full mx-4" />
-        <p className="hidden sm:flex">
-          <FontAwesomeIcon icon={faAngleDown} color="dodgerblue" />
-          مازن مصطفى
-        </p>
+
+      {/* Mobile Menu */}
+      <div
+        className={`
+          md:hidden
+          overflow-hidden
+          bg-white
+          transition-all
+          duration-300
+          ${mobileMenuOpen ? "max-h-[500px] border-t" : "max-h-0"}
+        `}
+      >
+        <nav className="flex flex-col py-2">
+          {links.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className="
+                px-6
+                py-4
+                text-center
+                font-bold
+                text-[var(--secondary)]
+                transition
+                hover:bg-gray-50
+                hover:text-[var(--primary-1)]
+              "
+            >
+              {link.name}
+            </Link>
+          ))}
+        </nav>
       </div>
     </header>
   );

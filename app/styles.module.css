@@ -1,9 +1,61 @@
+.container {
+  width: min(95%, 1600px);
+  margin-inline: auto;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+    padding-inline: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+.landingBg {
+  position: relative;
+  overflow: hidden;
+}
+
+.landingBg::after {
+  content: "";
+  width: 1200px;
+  height: 1015px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
 .shadow {
   border-radius: 12px;
-
   box-shadow:
-    -4px 0 20px -3px rgba(0, 0, 0, 0.05),
-    -2px 0 6px -2px rgba(0, 0, 0, 0.05);
+    -4px 0 20px -3px rgba(0, 0, 0, 0.1),
+    -2px 0 6px -2px rgba(0, 0, 0, 0.1);
   border-left: 12px black;
 }
 .link {
@@ -30,127 +82,214 @@
   border-right: 5px solid dodgerblue;
 }
 
-/* Hide the default checkbox */
-.customCheckbox {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
+.bgradient {
+  line-height: 1.5;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      1200px circle at 35% 45%,
+      rgba(0, 255, 128, 0.8),
+      transparent 60%
+    ),
+    radial-gradient(
+      1200px circle at 65% 35%,
+      rgba(30, 144, 255, 0.8),
+      transparent 60%
+    ),
+    white;
 }
 
-/* Style the label to look like a checkbox container */
-.customCheckbox + label {
+.herobtn {
   position: relative;
-  cursor: pointer;
-  padding-left: 30px; /* Space for the custom box */
-  display: inline-block;
-  line-height: 20px;
-  user-select: none;
-  font-family: sans-serif;
-  color: #333;
+  overflow: hidden;
+
+  padding: 14px 32px;
+  border-radius: 12px;
+
+  background: #077260;
+  color: #bce194;
+
+  font-weight: 700;
+
+  transition: color 0.4s ease;
+
+  z-index: 1;
 }
 
-/* Create the custom checkbox box */
-.customCheckbox + label::before {
+.herobtn::before,
+.herobtn::after {
   content: "";
+
   position: absolute;
-  left: 0;
-  top: 0;
+  top: 50%;
+
   width: 20px;
   height: 20px;
-  border: 2px solid #b4bcaf;
-  border-radius: 4px; /* Rounded corners */
-  background: #fff;
-  transition: all 0.2s ease;
+
+  border-radius: 9999px;
+
+  background: #bce194;
+
+  transform: translateY(-50%) scale(0);
+
+  transition: transform 0.6s ease;
+
+  z-index: -1;
 }
 
-/* Style when hovered */
-.customCheckbox + label:hover::before {
-  border-color: #4a90e2;
+.herobtn::before {
+  left: -10px;
 }
 
-/* Style when checked (Background change) */
-.customCheckbox:checked + label::before {
-  background: #4a90e2;
-  border-color: #4a90e2;
+.herobtn::after {
+  right: -10px;
 }
 
-/* Create the checkmark (hidden by default) */
-.customCheckbox + label::after {
-  content: "";
-  position: absolute;
-  left: 7px;
-  top: 3px;
-  width: 6px;
-  height: 11px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg) scale(0);
-  transition: transform 0.2s ease;
+.herobtn:hover::before,
+.herobtn:hover::after {
+  transform: translateY(-60%) scale(40);
 }
 
-/* Reveal the checkmark when checked */
-.customCheckbox:checked + label::after {
-  transform: rotate(45deg) scale(1);
+.herobtn:hover {
+  color: #077260;
 }
 
-/* Hide default radio completely */
-.customRadio {
-  display: none;
-}
-
-/* Base label styling - Now using Flexbox */
-.customRadio + label {
-  display: inline-flex;
-  align-items: center; /* This perfectly centers the circle and text vertically */
-  cursor: pointer;
-  margin-right: 20px;
-  font-family: sans-serif;
-  user-select: none;
+.herobtn2 {
   position: relative;
+  overflow: hidden;
+
+  padding: 14px 32px;
+  border-radius: 12px;
+
+  background: #bce194;
+  color: #077260;
+
+  font-weight: 700;
+
+  transition: color 0.4s ease;
+
+  z-index: 1;
 }
 
-/* Create outer circle */
-.customRadio + label::before {
+.herobtn2::before,
+.herobtn2::after {
   content: "";
-  display: inline-block;
+
+  position: absolute;
+  top: 50%;
+
   width: 20px;
   height: 20px;
-  border: 2px solid #cbd5e1;
-  border-radius: 50%;
+
+  border-radius: 9999px;
+
   background: #fff;
-  margin-right: 10px; /* Creates clean space between circle and text */
-  box-sizing: border-box; /* Ensures border doesn't alter the 20px size */
-  transition: all 0.2s ease;
+
+  transform: translateY(-50%) scale(0);
+
+  transition: transform 0.6s ease;
+
+  z-index: -1;
 }
 
-/* Hover effect */
-.customRadio + label:hover::before {
-  border-color: #10b981;
+.herobtn2::before {
+  left: -10px;
 }
 
-/* Checked outer circle border color */
-.customRadio:checked + label::before {
-  border-color: #10b981;
+.herobtn2::after {
+  right: -10px;
 }
 
-/* Create inner dot */
-.customRadio + label::after {
+.herobtn2:hover::before,
+.herobtn2:hover::after {
+  transform: translateY(-60%) scale(40);
+}
+
+.herobtn2:hover {
+  color: #077260;
+}
+
+.herobtn3 {
+  position: relative;
+  overflow: hidden;
+
+  padding: 14px 32px;
+  border-radius: 12px;
+
+  background: #077260;
+  color: #bce194;
+
+  font-weight: 700;
+
+  transition: color 0.4s ease;
+
+  z-index: 1;
+}
+
+.herobtn3::before,
+.herobtn3::after {
   content: "";
+
   position: absolute;
-  /* Precisely centers the 10px dot inside the 20px circle */
-  left: 5px;
-  top: 5px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #10b981;
-  transform: scale(0);
-  transition: transform 0.2s ease;
+  top: 50%;
+
+  width: 20px;
+  height: 20px;
+
+  border-radius: 9999px;
+
+  background: #fff;
+
+  transform: translateY(-50%) scale(0);
+
+  transition: transform 0.6s ease;
+
+  z-index: -1;
 }
 
-/* Reveal inner dot when checked */
-.customRadio:checked + label::after {
-  transform: scale(1);
+.herobtn3::before {
+  left: -10px;
+}
+
+.herobtn3::after {
+  right: -10px;
+}
+
+.herobtn3:hover::before,
+.herobtn3:hover::after {
+  transform: translateY(-60%) scale(40);
+}
+
+.herobtn3:hover {
+  color: #077260;
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(144, 1, 187, 0.3),
+    rgba(255, 255, 255, 1),
+    rgba(131, 1, 170, 0.322)
+  );
+
+  background-size: 200% 100%;
+
+  -webkit-background-clip: text;
+  color: transparent;
+
+  animation: shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+
+  to {
+    background-position: -200% 0;
+  }
 }

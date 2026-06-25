@@ -1,13 +1,15 @@
+import styles from "@/app/styles.module.css";
+const { herobtn } = styles;
 type Text = {
   text: string;
 };
 const Button = ({ text }: Text) => {
   return (
-    <div className="flex flex-row w-full  mb-20">
-      <button className="text-[26px] w-40 cursor-pointer transition hover:bg-blue-500 bg-[dodgerblue] text-white px-4 py-2 font-bold">
-        {text}
-      </button>
-    </div>
+    <button
+      className={`${herobtn} w-full font-bold  rounded-xl cursor-pointer py-4 text-white`}
+    >
+      {text}
+    </button>
   );
 };
 

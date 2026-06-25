@@ -1,13 +1,17 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { Inter, Cairo } from "next/font/google";
+import "@/app/globals.css";
+import { Cairo } from "next/font/google";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import Sidebar from "./Sidebar";
 import React from "react";
-config.autoAddCss = false;
+import Header from "@/components/mainparts/Header";
+import Wrapper from "./Wrapper";
+import styles from "@/app/styles.module.css";
+import Footer from "@/components/footer/Footer";
 
-const interF = Inter({ subsets: ["latin"] });
+config.autoAddCss = false;
+const { container } = styles;
 const cairo = Cairo({ subsets: ["latin"] });
 
 const geistSans = Geist({
@@ -34,11 +38,17 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html
       lang="ar"
       dir="rtl"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} antialiased m-0`}
     >
-      <body className={` ${cairo.className} min-h-full flex w-full`}>
-        <Sidebar />
-        {children}
+      <body className={`${cairo.className} min-h-screen`}>
+        <Wrapper>
+          <Sidebar />
+          <div className={`flex flex-col flex-1 ${styles.landingBg} min-w-0`}>
+            <Header />
+            <div className={`m-0 bg-[var(--secondary)]`}>{children}</div>
+          </div>
+        </Wrapper>
+        <Footer />
       </body>
     </html>
   );

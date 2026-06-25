@@ -8,7 +8,6 @@ const FormBoxParts = () => {
       <h3 className="text-[18px] font-bold text-[dodgerblue]">
         3. معلومات إضافية
       </h3>
-
       <main className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
         {/* --- RADIO BUTTONS SECTION --- */}
         <div className="flex flex-col mb-6">
@@ -137,7 +136,7 @@ const FormBoxParts = () => {
           <textarea
             rows={4}
             placeholder="اكتب هنا...."
-            className="border-[0.5px] border-gray-400 rounded-[5px] px-2 py-2 focus:outline-none max-w-80 text-[14px] resize-none"
+            className="border-[0.5px] border-gray-400 rounded-[5px] px-2 py-2 focus:outline-none max-w-100 text-[14px] resize-none"
           />
         </div>
       </main>
