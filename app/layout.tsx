@@ -1,4 +1,3 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "@/app/globals.css";
 import { Cairo } from "next/font/google";
 import { config } from "@fortawesome/fontawesome-svg-core";
@@ -11,18 +10,7 @@ import styles from "@/app/styles.module.css";
 import Footer from "@/components/footer/Footer";
 
 config.autoAddCss = false;
-const { container } = styles;
 const cairo = Cairo({ subsets: ["latin"] });
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata = {
   title: "Create Next App",
@@ -35,11 +23,7 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html
-      lang="ar"
-      dir="rtl"
-      className={`${geistSans.variable} ${geistMono.variable} antialiased m-0`}
-    >
+    <html lang="ar" dir="rtl" className={`antialiased m-0`}>
       <body className={`${cairo.className} min-h-screen`}>
         <Wrapper>
           <Sidebar />

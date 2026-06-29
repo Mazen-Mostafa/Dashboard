@@ -1,6 +1,5 @@
-import React from "react";
 import LandingOverlay from "./LandingOverlay";
-import LandingContent from "./LandingContent";
+
 const Landing = () => {
   return (
     <div>

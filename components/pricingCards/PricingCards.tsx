@@ -1,8 +1,8 @@
 "use client";
-import React from "react";
+
 import ButtonSec from "../reusable/ButtonSec";
 import Button from "../reusable/Button";
-import { faLess } from "@fortawesome/free-brands-svg-icons";
+
 import { motion } from "framer-motion";
 
 const plans = [

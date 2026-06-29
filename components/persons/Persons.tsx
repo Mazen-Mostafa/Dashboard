@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
-import Image from "next/image";
+
+import AppImage from "../AppImage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Button from "../reusable/Button";
@@ -28,18 +28,18 @@ const Persons = () => {
         className={`my-20 px-6 mx-auto max-w-7xl gap-9 flex  lg:flex-nowrap flex-wrap items-center justify-between`}
       >
         <div className="grid lg:grid-cols-2 items-center hidden lg:grid gap-6">
-          <Image
+          <AppImage
             className="rounded-2xl "
             width={500}
             height={1000}
-            src={"person2.jpg"}
+            src={"/person2.jpg"}
             alt="person"
           />
-          <Image
+          <AppImage
             className="rounded-2xl"
             width={500}
             height={1000}
-            src={"person1.jpg"}
+            src={"/person1.jpg"}
             alt="person"
           />
         </div>
@@ -81,11 +81,11 @@ const Persons = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 items-center gap-4 ">
             <Button text="اعرف المزيد >>" />
             <div className="mr-5 flex items-center justify-between">
-              <Image
+              <AppImage
                 width={50}
                 height={50}
                 className="rounded-full"
-                src={"cofound.jpg"}
+                src={"/cofound.jpg"}
                 alt="co"
               />
               <p className="mr-3 flex-1 font-bold text-nowrap">

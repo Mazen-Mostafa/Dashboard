@@ -1,7 +1,7 @@
 "use client";
-import React from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Image from "next/image";
+import AppImage from "../AppImage";
 import ButtonThird from "../reusable/ButtonThird";
 import {
   faGear,
@@ -10,24 +10,23 @@ import {
   faPaintBrush,
 } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
-import { faIntercom } from "@fortawesome/free-brands-svg-icons";
 const Services = () => {
   const data = [
     {
       icon: faGear,
       name: "مركز البيانات والخدمات السحابية",
-      img: "serv1.png",
+      img: "/serv1.png",
     },
-    { icon: faLaptop, name: "تطوير مواقع الويب والتطبيقات", img: "serv2.png" },
+    { icon: faLaptop, name: "تطوير مواقع الويب والتطبيقات", img: "/serv2.png" },
     {
       icon: faNetworkWired,
       name: "خدمات تقنية المعلومات والتعلم الآلي",
-      img: "serv3.png",
+      img: "/serv3.png",
     },
     {
       icon: faPaintBrush,
       name: "الإنتاج الرقمي وتصميم التطبيقات",
-      img: "serv4.png",
+      img: "/serv4.png",
     },
   ];
   return (
@@ -73,7 +72,7 @@ const Services = () => {
               <h3 className="my-5 font-bold text-[18px] text-center transition">
                 {card.name}
               </h3>
-              <Image
+              <AppImage
                 className="my-5"
                 src={card.img}
                 alt="cardImg"

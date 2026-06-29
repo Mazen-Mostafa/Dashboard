@@ -1,12 +1,11 @@
 "use client";
 
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import styles from "@/app/styles.module.css";
-import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
+import { faX } from "@fortawesome/free-solid-svg-icons";
 import { sidebarToggleContext } from "./Wrapper";
 
 const Sidebar = () => {

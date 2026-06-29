@@ -1,8 +1,3 @@
-import React from "react";
-import styles from "@/app/styles.module.css";
-import Button from "../reusable/Button";
-
-const { container, shimmer } = styles;
 const LandingContent = () => {
   return (
     <div>

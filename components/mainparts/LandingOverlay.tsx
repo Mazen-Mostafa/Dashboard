@@ -1,21 +1,20 @@
 "use client";
-import Image from "next/image";
-import LandingForm from "./LandingForm";
+import AppImage from "../AppImage";
 import LandingContent from "./LandingContent";
 import Button from "../reusable/Button";
 import { motion } from "framer-motion";
 
 const data = [
-  { name: "إدارة البيانات & مركز الخدمات", img: "hero1.jpg" },
-  { name: "التجهيز للخدمات السحابية", img: "hero2.jpg" },
-  { name: "التعلم اللآلي والذكاء الإصطناعي", img: "hero3.jpg" },
+  { name: "إدارة البيانات & مركز الخدمات", img: "/hero1.jpg" },
+  { name: "التجهيز للخدمات السحابية", img: "/hero2.jpg" },
+  { name: "التعلم اللآلي والذكاء الإصطناعي", img: "/hero3.jpg" },
 ];
 const LandingOverlay = () => {
   return (
     <section className="relative min-h-[800px] overflow-hidden py-10">
       {/* BG */}
-      <Image
-        src="bg-img.jpg"
+      <AppImage
+        src="/bg-img.jpg"
         alt="Hero"
         fill
         priority
@@ -84,7 +83,7 @@ const LandingOverlay = () => {
                 </div>
               </div>
 
-              <Image
+              <AppImage
                 src={el.img}
                 className="rounded-2xl"
                 width={160}

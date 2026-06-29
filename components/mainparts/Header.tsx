@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
+import { useState } from "react";
+import AppImage from "../AppImage";
 import Link from "next/link";
-import clsx from "clsx";
 import { usePathname } from "next/navigation";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,7 +12,6 @@ const links = [
   { name: "الصفحة الرئيسية", href: "/" },
   { name: "من نحن", href: "/us/" },
   { name: "الخدمات", href: "/services/" },
-  { name: "الصفحات", href: "/pages/" },
   { name: "تواصل معنا", href: "/contact/" },
 ];
 
@@ -27,19 +25,19 @@ const Header = () => {
     <header className="fixed top-0 left-0 z-50 w-full bg-white shadow-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 md:px-8">
         {/* Logo */}
-        <div className="flex items-center">
-          <Link href="/">
-            <Image
-              src={"/logo.png"}
+        <div className="flex items-center py-3">
+          <Link href="/" className="flex items-center">
+            <AppImage
+              src="/logo.png"
               alt="Logo"
               width={50}
               height={50}
               priority
             />
+            <h2 className="text-[26px] mr-3 text-[var(--primary-1)] font-bold">
+              الوصل
+            </h2>
           </Link>
-          <h2 className="text-[26px] mr-3 text-[var(--primary-1)] font-bold">
-            الوصل
-          </h2>
         </div>
         {/* Desktop Navigation */}
         <nav className="hidden md:flex h-20 justify-center items-center gap-8">
@@ -103,10 +101,10 @@ const Header = () => {
                 py-4
                 text-center
                 font-bold
-                text-[var(--secondary)]
+                text-[var(--primary-1)]
                 transition
                 hover:bg-gray-50
-                hover:text-[var(--primary-1)]
+                hover:text-[var(--primary-3)]
               "
             >
               {link.name}

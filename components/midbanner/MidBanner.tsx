@@ -1,23 +1,23 @@
 "use client";
 import PurpleBackground from "../reusable/PurpleBackground";
-import Image from "next/image";
+import AppImage from "../AppImage";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function MidBanner() {
   const data = [
     {
-      img: "mid1.jpg",
+      img: "/mid1.jpg",
       name: "إستشارات تقنية",
       text: "كيف تزيد الإنتاجية في مجال تقنية المعلومات",
     },
     {
-      img: "mid2.jpg",
+      img: "/mid2.jpg",
       name: "التعلم الآلي",
       text: "إستراتيجيات لنتائج مستقبلية مبهرة وتحليلات دقيقة",
     },
     {
-      img: "mid3.jpg",
+      img: "/mid3.jpg",
       name: "تصميمات للأنظمة",
       text: "إستكشف الطرق الأفضل لتصميم الأنظمة الحديثة",
     },
@@ -64,7 +64,7 @@ export default function MidBanner() {
                 className="group p-4 hover:bg-white rounded-2xl transition-all duration-300"
               >
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
-                  <Image
+                  <AppImage
                     src={card.img}
                     className="rounded-2xl transition-all duration-300"
                     alt="alt"

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Image from "next/image";
+import AppImage from "@/components/AppImage";
 import { motion } from "framer-motion";
 const Statistics = () => {
   return (
@@ -29,8 +29,8 @@ const Statistics = () => {
             الفكرة العامة لشركة الوصل
           </p>
         </div>
-        <div className="flex-col flex items-center md:flex-row justify-between">
-          <div className="flex flex-col gap justify-between">
+        <div className="flex-col flex items-center lg:flex-row justify-between">
+          <div className="max-w-180 flex flex-col gap justify-between">
             <p className="text-[var(--text)] text-[18px]">
               شركة الوصل متخصصة في تقديم الحلول الرقمية المتكاملة، نساعد
               المؤسسات والأفراد على تحويل أفكارهم إلى منتجات رقمية ناجحة من خلال
@@ -48,17 +48,13 @@ const Statistics = () => {
               لمساعدة زوار المنصة للوصول للخدمات الخاصة بالتسجيل أو الخدمات
               الإدارية والمالية بشكل سهل ومرن.
             </p>
-            <p className="text-[var(--text)] mt-5 text-[18px]">
-              يدعم Al-Wasel اللغتين العربية والانجليزية مع الدعم الكامل لنظم
-              التعليم الدولية الأمريكية والبريطانية ونظام التعليم المحلي في منصة
-              واحدة، وقد حققت تطبيقات الجوال في Al-Wasel طفرة كبيرة سبقت جميع
-              النظم التعليمية في تحقيق معايير عالية للجودة في العملية التعليمية
-              بين الطلاب والمعلمين وتواصل فعال مع أولياء الأمور وتقديم خدمات
-              إلكترونية تعليمية وإدارية متنوعة
-            </p>
           </div>
 
-          <Image src={"/us.png"} alt="us" width={500} height={500} />
+          <div className=" m-7 bg-[var(--primary-1)] p-4 rounded-2xl">
+            <div className="bg-[var(--primary-3)] p-4 rounded-2xl">
+              <AppImage src={"/us.jpg"} alt="us" width={400} height={400} />
+            </div>
+          </div>
         </div>
       </motion.div>
       <motion.div
@@ -79,16 +75,16 @@ const Statistics = () => {
       >
         <div
           dir="ltr"
-          className="my-10 flex-col flex items-center md:flex-row justify-between"
+          className="my-10 flex-col flex items-center lg:flex-row justify-between"
         >
           <div className="flex flex-col gap justify-between max-w-[750px]">
-            <p className="text-right text-[var(--text)] text-[18px]">
-              شركة الوصل متخصصة في تقديم الحلول الرقمية المتكاملة، نساعد
-              المؤسسات والأفراد على تحويل أفكارهم إلى منتجات رقمية ناجحة من خلال
-              تطوير المواقع الإلكترونية والتطبيقات الذكية، وتقديم الاستشارات
-              التقنية، وبناء حلول الذكاء الاصطناعي المبتكرة. نؤمن بأن التقنية هي
-              المحرك الأساسي للنمو، لذلك نسعى إلى تقديم خدمات عالية الجودة تجمع
-              بين الإبداع والكفاءة لتحقيق أفضل النتائج لعملائنا.
+            <p className="text-right text-[var(--text)] mt-5 text-[18px]">
+              يدعم نظامنا اللغتين العربية والانجليزية مع الدعم الكامل لنظم
+              التعليم الدولية الأمريكية والبريطانية ونظام التعليم المحلي في منصة
+              واحدة، وقد حققت تطبيقات الجوال في Al-Wasel طفرة كبيرة سبقت جميع
+              النظم التعليمية في تحقيق معايير عالية للجودة في العملية التعليمية
+              بين الطلاب والمعلمين وتواصل فعال مع أولياء الأمور وتقديم خدمات
+              إلكترونية تعليمية وإدارية متنوعة
             </p>
             <p className="text-right text-[var(--text)] mt-5 text-[18px]">
               طورت شركة الوصل إمكانات جديدة فيما يخص الذكاء الاصطناعي في اصدارها
@@ -99,17 +95,13 @@ const Statistics = () => {
               لمساعدة زوار المنصة للوصول للخدمات الخاصة بالتسجيل أو الخدمات
               الإدارية والمالية بشكل سهل ومرن.
             </p>
-            <p className="text-right text-[var(--text)] mt-5 text-[18px]">
-              يدعم Al-Wasel اللغتين العربية والانجليزية مع الدعم الكامل لنظم
-              التعليم الدولية الأمريكية والبريطانية ونظام التعليم المحلي في منصة
-              واحدة، وقد حققت تطبيقات الجوال في Al-Wasel طفرة كبيرة سبقت جميع
-              النظم التعليمية في تحقيق معايير عالية للجودة في العملية التعليمية
-              بين الطلاب والمعلمين وتواصل فعال مع أولياء الأمور وتقديم خدمات
-              إلكترونية تعليمية وإدارية متنوعة
-            </p>
           </div>
 
-          <Image src={"/us2.jpg"} alt="us" width={400} height={400} />
+          <div className="bg-[var(--primary-1)] m-7 p-4 rounded-2xl">
+            <div className="bg-[var(--primary-3)] p-4 rounded-2xl">
+              <AppImage src={"/us2.jpg"} alt="us" width={400} height={400} />
+            </div>
+          </div>
         </div>
       </motion.div>
     </div>
