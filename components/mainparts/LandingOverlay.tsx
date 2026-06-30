@@ -71,7 +71,7 @@ const LandingOverlay = () => {
               }}
               className="flex justify-between items-center p-4 bg-white rounded-2xl"
             >
-              <div className="px-3 flex flex-col">
+              <div className="px-3 max-w-3xs flex flex-col">
                 <h3>0{index + 1}</h3>
 
                 <h4 className="my-3 text-[var(--primary-1)] font-bold text-[16px]">
