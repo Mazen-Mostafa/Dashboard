@@ -39,7 +39,7 @@ const Persons = () => {
             className="rounded-2xl"
             width={500}
             height={1000}
-            src={"/person1.jpg"}
+            src={`/person1.jpg`}
             alt="person"
           />
         </div>

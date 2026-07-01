@@ -136,7 +136,7 @@ const FormBoxParts = () => {
           <textarea
             rows={4}
             placeholder="اكتب هنا...."
-            className="border-[0.5px] border-gray-400 rounded-[5px] px-2 py-2 focus:outline-none max-w-100 text-[14px] resize-none"
+            className="border-[0.5px] border-gray-400 rounded-[5px] px-2 py-2 focus:outline-none max-w-100 text-[14px] resize-none  "
           />
         </div>
       </main>

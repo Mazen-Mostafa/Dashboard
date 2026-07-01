@@ -18,7 +18,6 @@ const Sidebar = () => {
   }
 
   const { isOpen, setIsOpen } = context;
-  console.log(isOpen);
   return (
     <div
       className={`
