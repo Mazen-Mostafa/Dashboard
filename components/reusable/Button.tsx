@@ -6,7 +6,7 @@ type Text = {
 const Button = ({ text }: Text) => {
   return (
     <button
-      className={`${herobtn} w-full font-bold  rounded-xl cursor-pointer py-4 text-white`}
+      className={`${herobtn} font-bold  rounded-xl cursor-pointer py-2 text-white`}
     >
       {text}
     </button>

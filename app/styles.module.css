@@ -107,11 +107,11 @@
   position: relative;
   overflow: hidden;
 
-  padding: 14px 32px;
+  padding: 8px 16px;
   border-radius: 12px;
 
-  background: #077260;
-  color: #bce194;
+  background: #28aeec;
+  color: #fff;
 
   font-weight: 700;
 
@@ -132,7 +132,7 @@
 
   border-radius: 9999px;
 
-  background: #bce194;
+  background: #b8cedb;
 
   transform: translateY(-50%) scale(0);
 
@@ -155,7 +155,7 @@
 }
 
 .herobtn:hover {
-  color: #077260;
+  color: #28aeec;
 }
 
 .herobtn2 {

@@ -29,10 +29,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <Sidebar />
           <div className={`flex flex-col flex-1 ${styles.landingBg} min-w-0`}>
             <Header />
-            <div className={`m-0 bg-[var(--secondary)]`}>{children}</div>
+            <div
+              className={`m-0 bg-gradient-to-b from-[#fcfcfc] to-[#a0cee3] `}
+            >
+              {children}
+            </div>
           </div>
         </Wrapper>
-        <Footer />
       </body>
     </html>
   );
